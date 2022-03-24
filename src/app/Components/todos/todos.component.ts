@@ -12,6 +12,7 @@ export class TodosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.todos.push({ title: 'first ', isComplete: false })
   }
 
   addToDo(todo: Todo) {
@@ -27,7 +28,12 @@ export class TodosComponent implements OnInit {
 
   deleteToDo(index: number) {
     this.todos.splice(index, 1)
+  }
 
+  updateTodo({ title, index }: { title: string, index: number }) {
+    let todo = this.todos[index];
+    todo.title = title;
+    this.todos.splice(index, 1, todo)
   }
 
 

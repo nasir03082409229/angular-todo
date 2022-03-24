@@ -1,6 +1,13 @@
 <div style="border: 1px solid black; margin :5px; padding: 5px;">
-    <p>Title : {{todo.title}}</p>
+    <div *ngIf="!isEdit else editForm">
+        <p>Title : {{todo.title}}</p>
+    </div>
+    <ng-template #editForm>
+        <input type="text" [(ngModel)]="title" name="title" id="title" />
+        <button (click)="onClickUpdateToDo()">update Todo</button>
+    </ng-template>
     <p>isComplete : {{todo.isComplete}} </p>
+    <button (click)="onClickEditTodo()">Edit</button>
     <button (click)="onClickToggle(index)">Toggle</button>
     <button (click)="onClickDeleteToDo(index)">Delete </button>
 </div>

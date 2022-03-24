@@ -8,11 +8,14 @@ import { Todo } from 'src/app/Todo';
 })
 export class TodoItemComponent implements OnInit {
 
+  isEdit: boolean = false;
+  title: string = ''
   constructor() { }
   @Input() todo: Todo;
   @Input() index: number;
   @Output() toggleToDo: EventEmitter<number> = new EventEmitter();
   @Output() deleteToDo: EventEmitter<number> = new EventEmitter();
+  @Output() updateTodo: EventEmitter<{ title: string, index: number }> = new EventEmitter();
 
   ngOnInit(): void {
   }
@@ -24,5 +27,17 @@ export class TodoItemComponent implements OnInit {
   onClickDeleteToDo(index: number) {
     this.deleteToDo.emit(index)
   }
+
+  onClickEditTodo() {
+    this.title = this.todo.title;
+    this.isEdit = !this.isEdit;
+  }
+
+  onClickUpdateToDo() {
+    this.updateTodo.emit({ title: this.title, index: this.index });
+    this.isEdit = !this.isEdit;
+
+  }
+
 
 }
