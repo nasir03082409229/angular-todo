@@ -12,6 +12,7 @@ export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
   @Input() index: number;
   @Output() toggleToDo: EventEmitter<number> = new EventEmitter();
+  @Output() deleteToDo: EventEmitter<number> = new EventEmitter();
 
   ngOnInit(): void {
   }
@@ -20,5 +21,8 @@ export class TodoItemComponent implements OnInit {
     this.toggleToDo.emit(index)
   }
 
+  onClickDeleteToDo(index: number) {
+    this.deleteToDo.emit(index)
+  }
 
 }

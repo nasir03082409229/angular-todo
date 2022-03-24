@@ -12,16 +12,22 @@ export class TodosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.todos = [{ title: '1', isComplete: false }]
   }
 
   addToDo(todo: Todo) {
     this.todos.push(todo)
   }
+
+
   toggleToDo(index: number) {
     let todo = this.todos[index];
     todo.isComplete = !todo.isComplete;
     this.todos.splice(index, 1, todo)
+  }
+
+  deleteToDo(index: number) {
+    this.todos.splice(index, 1)
+
   }
 
 

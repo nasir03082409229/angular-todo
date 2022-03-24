@@ -16,12 +16,11 @@ export class AddTodoComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.title)
     let todo: Todo = {
-      title: this.title,
-      isComplete: false
+      title: this.title, isComplete: false
     }
     this.addToDo.emit(todo)
+    this.title = ''
   }
 
 }
