@@ -8,7 +8,7 @@ import { Todo } from 'src/app/Todo';
 })
 export class TodosComponent implements OnInit {
   todos: Todo[] = []
-  
+
   constructor() { }
 
   ngOnInit(): void {
@@ -18,5 +18,11 @@ export class TodosComponent implements OnInit {
   addToDo(todo: Todo) {
     this.todos.push(todo)
   }
+  toggleToDo(index: number) {
+    let todo = this.todos[index];
+    todo.isComplete = !todo.isComplete;
+    this.todos.splice(index, 1, todo)
+  }
+
 
 }

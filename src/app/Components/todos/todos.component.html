@@ -3,6 +3,6 @@
     <app-add-todo (addToDo)="addToDo($event)"></app-add-todo>
 
     <div *ngFor="let todo of todos; index as i">
-        <app-todo-item [todo]="todo"></app-todo-item>
+        <app-todo-item [todo]="todo" [index]="i" (toggleToDo)="toggleToDo($event)"></app-todo-item>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from 'src/app/Todo';
 
 @Component({
@@ -10,7 +10,15 @@ export class TodoItemComponent implements OnInit {
 
   constructor() { }
   @Input() todo: Todo;
+  @Input() index: number;
+  @Output() toggleToDo: EventEmitter<number> = new EventEmitter();
+
   ngOnInit(): void {
   }
-  
+
+  onClickToggle(index: number) {
+    this.toggleToDo.emit(index)
+  }
+
+
 }

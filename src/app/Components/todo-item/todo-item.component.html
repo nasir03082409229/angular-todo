@@ -1,1 +1,5 @@
-<p>Title : {{todo.title}} isComplete : {{todo.isComplete}}</p>
+<div style="border: 1px solid black; margin :5px; padding: 5px;">
+    <p>Title : {{todo.title}}</p>
+    <p>isComplete : {{todo.isComplete}} </p>
+    <button (click)="onClickToggle(index)">Toggle</button>
+</div>
